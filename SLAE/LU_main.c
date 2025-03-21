@@ -3,7 +3,7 @@
 int main() {
     char buff[100];
     int size;
-    FILE* file = fopen("SLAE/input.txt", "r");
+    FILE* file = fopen("SLAE/input.txt", "r"); // чтение файла
     if (file == NULL) {
         char* path = "LU_main.c";
         error_t Error = ERROR_FILE_READ;
@@ -27,11 +27,11 @@ int main() {
     fgets(buff, sizeof(buff), file);
     init_matrix(&A, size, buff);
 
-    LU(A, &L, &U);
+    LU(A, &L, &U); // LU - разложение
 
-    if (!solutions(U)) return 0;
+    if (!solutions(U)) return 0; // проверка на корни
 
-    SquareMatrix_t* R = multiply_matrix(L, U);
+    SquareMatrix_t* R = multiply_matrix(L, U); // проверка корректности LU - разложения
 
     char* A_matrix = toString_matrix(A);
     printf("Исходная матрица: %s\n", A_matrix);

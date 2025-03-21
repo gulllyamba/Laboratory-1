@@ -62,3 +62,4 @@ clean:
 	rm -f tests/COMPLEX_tests/*.o
 	rm -f src/Error/*.o
 	rm -f SLAE/*.o
+	rm -f lu
